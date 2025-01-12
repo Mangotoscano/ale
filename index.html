@@ -18,6 +18,7 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
+            width: 300px;
         }
         .login-box h2 {
             margin-bottom: 20px;
@@ -58,15 +59,22 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .message {
+        .message-box {
             display: none;
-            color: red;
-            margin-top: 10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .message-box h1 {
+            color: #d9534f;
         }
     </style>
 </head>
 <body>
-    <div class="login-box">
+    <div class="login-box" id="loginBox">
         <h2>Login</h2>
         <form id="loginForm">
             <input type="text" name="username" placeholder="Username" required>
@@ -78,23 +86,26 @@
             <p>Logging in...</p>
             <div class="spinner"></div>
         </div>
-        <!-- Prank Message -->
-        <p class="message" id="message">you have succesfully downloaded Lgbtq+ update in your device </p>
-        <p></p> Congratulation! Now you are part of the lgbtq+ community! 🏳️‍🌈🥳</p>
-        <p></p> You are in the GAY category, you like big black cocks 👀🍆💦 </p>
+    </div>
+
+    <!-- Prank Message (Hidden Initially) -->
+    <p class="message" id="message">you have succesfully downloaded Lgbtq+ update in your device </p>
+        <p> Congratulation! Now you are part of the lgbtq+ community! 🏳️‍🌈🥳</p>
+        <p> You are in the GAY category, you like big black cocks 👀🍆💦 </p>
     </div>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting
 
-            // Show the loading animation
+            // Hide the login box and show the loading animation
+            document.getElementById('loginBox').style.display = 'none';
             document.getElementById('loading').style.display = 'block';
 
             // Simulate a delay (e.g., 2 seconds) before showing the prank message
             setTimeout(function() {
                 document.getElementById('loading').style.display = 'none'; // Hide the loading animation
-                document.getElementById('message').style.display = 'block'; // Show the prank message
+                document.getElementById('messageBox').style.display = 'block'; // Show the prank message
             }, 2000); // 2000 milliseconds = 2 seconds
         });
     </script>
